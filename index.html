@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PVZOE</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, rgba(120,200,255,0.9), rgba(200,240,255,0.9));
+      overflow: hidden;
+    }
+    .card {
+      width: 420px;
+      padding: 20px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(15px) saturate(180%);
+      -webkit-backdrop-filter: blur(15px) saturate(180%);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      text-align: center;
+      z-index: 1;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .card h1 {
+      font-size: 1.8em;
+      margin: 10px 0;
+      color: #111;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+    }
+    .card p {
+      color: #222;
+      font-size: 0.95em;
+      margin: 8px 0;
+    }
+    .play-btn {
+      margin-top: 15px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    .play-btn:hover {
+      transform: scale(1.05);
+    }
+    .iframe-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      display: none;
+      z-index: 9999;
+    }
+    .iframe-overlay iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10000;
+    }
+    .disclaimer {
+      margin-top: 12px;
+      font-size: 0.85em;
+      color: #111;
+      padding: 6px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Local preview icon -->
+    <img src="./zijie/oe.jpg" alt="Game Preview">
+    <h1>PVZOE</h1>
+    <p>It's ba-ack!</p>
+    <div class="play-btn" onclick="openGame()">▶ Play</div>
+    <div class="disclaimer">
+      <p>I had to take the other versions out in fear that my team gets angry at me for sharing it.</p>
+      <p>我不得不把其他版本移除，因为我担心我的团队会因为我分享它而生气。</p>
+    </div>
+  </div>
+
+  <!-- Fullscreen overlay with iframe -->
+  <div class="iframe-overlay" id="gameOverlay">
+    <div class="close-btn" onclick="closeGame()">✖ Close</div>
+    <iframe src="./zijie/index.html"></iframe>
+  </div>
+
+  <script>
+    function openGame() {
+      document.getElementById("gameOverlay").style.display = "block";
+    }
+    function closeGame() {
+      document.getElementById("gameOverlay").style.display = "none";
+    }
+  </script>
+</body>
+</html>
